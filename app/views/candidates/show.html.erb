@@ -4,20 +4,16 @@
   <h1><%= @candidate.title %></h1>
   <br />
   <div class="row">
-    <div class="col-sm-4 col-12 text-center">
-      <span class="badge badge-default">
-        <%= number_to_currency @course.cost %>
-      </span>
-
-      <% if current_user && current_user == @candidate.user %>
-        <br />
-        <br />
-        <%= link_to 'Administer', admin_candidate_path(@candidate), class: 'btn btn-danger btn-large' %>
-      <% end %>
-    </div>
-
     <div class="col-sm-8 col-12">
       <%= @candidate.description %>
     </div>
+  </div>
+
+  <div class="col-12">
+    <% @candidate.sections.each do |section| %>
+      <div class="section">
+        <%= section.title %>
+      </div>
+    <% end %>
   </div>
 </div>

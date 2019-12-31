@@ -1,5 +1,6 @@
 class Admin::CandidatesController < ApplicationController
   before_action :authenticate_user!
+  before_action :require_authorized_for_current_candidate, only: [:show]
 
   def new
     @candidate = Candidate.new
@@ -12,14 +13,25 @@ class Admin::CandidatesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-    
   end
 
   def show
-    @candidate = Candidate.find(params[:id])
+
   end
 
+
   private
+
+  def require_authorized_for_current_candidate
+    if current_candidate.user != current_user
+      render plain: "Unauthorized", status: :unauthorized
+    end
+  end
+
+  helper_method :current_candidate
+  def current_candidate
+    @current_candidate ||= Course.find(params[:id])
+  end
 
   def candidate_params
     params.require(:candidaate).permit(:title, :description)
