@@ -1,0 +1,23 @@
+<br />
+
+<div class="booyah-box col-10 offset-1">
+  <h1 class="text-center">Vote for someone today</h1>
+  <hr />
+
+  <% @candidates.each do |candidate| %>
+    <h2 class="text-center">
+        <%= link_to candidate.title, candidate_path(candidate) %>
+    </h2>
+    <br />
+    <div class="row">
+      <div class="col-sm-8 col-12">
+        <%= candidate.description %>
+      </div>
+      <div class="col-sm-4 col-12 text-center">
+        <%= link_to 'More Details...', candidate_path(candidate), class: 'btn btn-primary btn-large' %>
+      </div>
+    </div>
+    <br class="clr" />
+  <% end %>
+</div>
+

@@ -1,0 +1,19 @@
+<br />
+<div class="booyah-box col-10 offset-1">
+  <h1 class="text-center"><%= @candidate.title %></h1>
+  <br />
+  <%= link_to 'Preview As Student...', candidate_path(@candidate), class: 'btn btn-warning float-right' %>
+  <br class="clr" />
+
+  <div class="text-center">
+    <%= link_to 'Add a new section...', new_admin_candidate_section_path(@candidate), class: 'btn btn-primary btn-lg' %>
+  </div>
+  <ul>
+    <% @candidate.sections.each do |section| %>
+      <li>
+        <%= section.title %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
