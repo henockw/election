@@ -2,7 +2,7 @@
 <div class="booyah-box col-10 offset-1">
   <h1>Add a new candidate</h1>
   <%= simple_form_for @candidate, url: admin_candidates_path do |f| %>
-    <%= f.input :title %>
+    <%= f.input :name %>
     <%= f.input :description %>
     <br />
     <%= f.submit "Create", class: 'btn btn-primary' %>

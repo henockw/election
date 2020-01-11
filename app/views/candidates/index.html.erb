@@ -6,7 +6,7 @@
 
   <% @candidates.each do |candidate| %>
     <h2 class="text-center">
-        <%= link_to candidate.title, candidate_path(candidate) %>
+        <%= link_to candidate.name, candidate_path(candidate) %>
     </h2>
     <br />
     <div class="row">

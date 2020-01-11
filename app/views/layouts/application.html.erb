@@ -19,9 +19,7 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-            <li class="nav-item">
-              <%= link_to 'See All Candidates', candidates_path, class: 'nav-link' %>
-            </li>
+
           </ul>
           <ul class="navbar-nav">
             <% if user_signed_in? %>
@@ -54,7 +52,7 @@
       <div class="container">
         <b>Admin</b>
         <br />
-        <%= link_to 'Pick a candidate', 'new_admin_candidate_path' %>
+        <%= link_to 'Pick a candidate', candidates_path %>
       </div>
     </div>
   </body>

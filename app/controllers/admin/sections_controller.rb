@@ -1,6 +1,6 @@
 class Admin::SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_authorized_for_current_candidate
+  before_action :require_authorized_for_current_admin
   
   def new
     @section = Section.new
@@ -13,15 +13,15 @@ class Admin::SectionsController < ApplicationController
 
   private
 
-  def require_authorized_for_current_course
-    if current_course.user != current_user
+  def require_authorized_for_current_admin
+    if current_admin.user != current_user
       render plain: "Unauthorized", status: :unauthorized
     end
   end
 
   helper_method :current_candidate
   def current_candidate
-    @current_candidate ||= Course.find(params[:candidate_id])
+    @current_candidate ||= Candidate.find(params[:candidate_id])
   end
 
   def section_params

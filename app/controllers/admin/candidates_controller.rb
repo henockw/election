@@ -16,7 +16,7 @@ class Admin::CandidatesController < ApplicationController
   end
 
   def show
-
+    
   end
 
 
@@ -30,10 +30,10 @@ class Admin::CandidatesController < ApplicationController
 
   helper_method :current_candidate
   def current_candidate
-    @current_candidate ||= Course.find(params[:id])
+    @current_candidate ||= Candidate.find(params[:id])
   end
 
   def candidate_params
-    params.require(:candidaate).permit(:title, :description)
+    params.require(:candidate).permit(:name, :description)
   end
 end
